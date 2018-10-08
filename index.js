@@ -116,6 +116,9 @@ class ServerlessAppsyncPlugin {
 
   deleteGraphQLEndpoint() {
     const config = this.loadConfig();
+    if (!config.autoDeploy)
+      return;
+    
     const { apiId } = config;
     if (!apiId) {
       throw new this.serverless.classes.Error('serverless-appsync: no apiId is defined. If you are not '
@@ -143,7 +146,9 @@ class ServerlessAppsyncPlugin {
 
   addResources() {
     const config = this.loadConfig();
-
+    if (!config.autoDeploy)
+      return;
+    
     if (config.apiId) {
       this.serverless.cli.log('WARNING: serverless-appsync has been updated in a breaking way and your '
         + 'service is configured using a reference to an existing apiKey in '
