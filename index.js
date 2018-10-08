@@ -204,7 +204,7 @@ class ServerlessAppsyncPlugin {
         Properties: {
           ApiId: { 'Fn::GetAtt': ['GraphQlApi', 'ApiId'] },
           Description: 'serverless-appsync-plugin: Default',
-          Expires: Math.floor(Date.now() / 1000) + (365 * 24 * 60 * 60),
+          Expires: Math.floor(Date.now() / 1000) + (364 * 24 * 60 * 60),
         },
       },
     };
