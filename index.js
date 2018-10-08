@@ -101,6 +101,10 @@ class ServerlessAppsyncPlugin {
   }
 
   validateSchema() {
+    const config = this.loadConfig();
+    if (!config.autoDeploy)
+      return;
+
     const schema = this.getSchema();
     const ast = buildASTSchema(parse(schema));
     const errors = validateSchema(ast);
