@@ -10,6 +10,12 @@ const objectToArrayWithNameProp = pipe(
 );
 
 module.exports = (config, provider, servicePath) => {
+  if ( !config.autoDeploy ) {
+    return {
+      autoDeploy: false
+    }
+  }
+
   if (
     !(
       config.authenticationType === 'API_KEY' ||
@@ -50,7 +56,7 @@ module.exports = (config, provider, servicePath) => {
 
   return {
     name: config.name || 'api',
-    autoDeploy: config.autoDeploy || false,
+    autoDeploy: config.autoDeploy,
     apiId: config.apiId,
     apiKey: config.apiKey,
     region: provider.region,
