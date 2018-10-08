@@ -50,6 +50,7 @@ module.exports = (config, provider, servicePath) => {
 
   return {
     name: config.name || 'api',
+    autoDeploy: config.autoDeploy || false,
     apiId: config.apiId,
     apiKey: config.apiKey,
     region: provider.region,
