@@ -10,7 +10,7 @@ const objectToArrayWithNameProp = pipe(
 );
 
 module.exports = (config, provider, servicePath) => {
-  if ( !config.autoDeploy || config.autoDeploy !== 'true') {
+  if ( !config.autoDeploy || (config.autoDeploy !== true && config.autoDeploy !== 'true' )) {
     return {
       autoDeploy: false
     }
